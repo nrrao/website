@@ -23,6 +23,7 @@ export const TagGeneratorContext = React.createContext({
   updateOrgVaue:()=>{},
   updateQueValue:()=>{},
   updateShowDisplayTag:()=>{},
+  updateProjectData:()=>{},
   updateProjectName: projectName => {},
   updateProjectRepository:projectRepository => {},
   validateUrl:projectRepository =>{},
@@ -73,6 +74,10 @@ export const TagGeneratorContext = React.createContext({
 
    const updateOrgValue =(option1,option2,showComponent,showOtgComponent)=>{
     setOrgValue({ option1: option1, option2: option2, showComponent: showComponent,showOrgComponent:showOtgComponent})
+   }
+
+   const updateProjectData =(pName,pRep)=>{
+    setProject({ projectName: pName, projectRepository: pRep})
    }
   
    const updateQueValue =(option1,option2)=>{
@@ -174,6 +179,7 @@ export const TagGeneratorContext = React.createContext({
         sendRequest:sendRequest,
         showDisplayNewTags:showDisplayNewTags,
         updateOrgValue:updateOrgValue,
+        updateProjectData:updateProjectData,
         updateQueValue:updateQueValue,
         addTag:addTag,
         updateTag:updateTag,

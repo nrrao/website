@@ -81,6 +81,8 @@ const useStyles = createUseStyles((theme) => ({
 },
 radioDiv:{
   marginTop: "24px",
+  display:'flex',
+    flexDirection:'row',
 },
 first: {
   
@@ -102,6 +104,11 @@ second: {
   marginLeft: "107px",
   marginRight:"15px",
 },
+projectOrg:{
+  marginRight: "16px",
+  marginLeft: "16px",
+},
+
 
 projectInfo: {
   marginRight: "16px",
@@ -110,11 +117,6 @@ projectInfo: {
 },
 
 pStyle: {
-  marginTop: "24px",
-  marginLeft: "16px",
-  //marginRight:"185px",
-  // width: "159px",
-  // height: "28px",
   fontWeight: "500",
   fontSize: "16px",
   lineHeight: "28px",
@@ -128,11 +130,15 @@ textBox: {
   paddingLeft: "14px",
   outline:'none',
   border:"none",
-  
+  marginBottom:"23px"
 },
+buttonDiv:{
+  marginLeft:"59px",
+  marginRight:"59px"
+  },
 
 generateButton: {
-  height: "36px",
+  height: "38px",
   width: "242px",
   backgroundColor: theme.button1BG,
   borderRadius: "22.5px",
@@ -140,28 +146,58 @@ generateButton: {
   fontSize: "14px",
   lineHeight: "16px",
   color: theme.button2BG,
-  marginTop: "25px",
-  marginLeft: "59px",
-  marginRight: "59px",
+  marginTop: "14px",
+  marginBottom:"12px"
+},
+resetButton: {
+  height: "38px",
+  width: "121px",
+  backgroundColor: 'white',
+  borderTopLeftRadius: "22.5px",
+  borderBottomLeftRadius: "22.5px",
+  borderColor:'#979797',
+  fontWeight: "bold",
+  fontSize: "14px",
+  lineHeight: "16px",
+  color: '#979797',
+  marginBottom:"30px"
+},
+resetFormButton: {
+  height: "38px",
+  width: "121px",
+  backgroundColor: 'white',
+  borderTopRightRadius: "22.5px",
+  borderBottomRightRadius: "22.5px",
+  borderColor:'#979797',
+  borderLeft:'none',
+  fontWeight: "bold",
+  fontSize: "14px",
+  lineHeight: "16px",
+  color: '#979797',
+  marginLeft:"0px",
   marginBottom:"30px"
 },
 hideButton:{
   visibility:"hidden",
+},
+tagDivMain:{
+  marginLeft: "16px",
+  marginRight: "16px",
+  
 },
 tagUl:{
   listStyle: 'none',
   display:'flex',
   flexDirection:'row',
   flexWrap:"wrap",
-  justifyContent:'spaceAround',
+  justifyContent:'spaceEvenly',
   padding:'0px',
-  margin:'0px',
-  
+  margin:'0px', 
 },
 
 
 tagLi:{
-  width: '97px',
+  width: 'auto',
   height: '44px',
   background: '#D7D7D7',
   // marginTop: "24px",
@@ -175,6 +211,95 @@ tagLi:{
   paddingLeft:'10px',
   paddingRight:'10px',
 },
+topicDiv:{
+display:'flex',
+flexDirection:'row',
+},
+topicBox: {
+  width: "283px",
+  height: "54px",
+  fontSize: "16px",
+  lineHeight: "19px",
+  paddingLeft: "14px",
+  outline:'none',
+  border:"none",
+  marginBottom:"10px"
+},
+plusButton: {
+ border:'none'
+},
+newTagLi:{
+  width: '161px',
+  height: '44px',
+  background: 'white',
+  margin:'10px',
+  textAlign:'center',
+  paddingTop:'12px',
+  paddingBottom:'12px',
+  paddingLeft:'10px',
+  paddingRight:'10px',
+},
+copyImg: {
+  paddingTop:'20px',
+  paddingBottom:'12px',
+  paddingLeft:'10px',
+  paddingRight:'10px',
+  height: "44px",
+  width: "44px",
+  //margin:'10px',
+},
+flexItem:{
+  width: '328.6px',
+  height: 'auto',
+  background: '#FFFFFF',
+  borderRadius: "12px",
+  //marginTop: "24px",
+
+},
+
+pHeading:{
+  width: "269px",
+  height: "auto",
+  fontSize: "24px",
+  lineHeight: "30px",
+  outline:'none',
+  border:"none",
+  textAlign:'center',
+  paddingTop: "24px",
+  marginLeft: "29.8px",
+  marginRight: "29.8px",
+  padingBottom:"20px",
+  fontWeight: "bold",
+},
+
+pTag:{
+  width: "286.6px",
+  height: "auto",
+  textAlign:'center',
+  marginLeft: "20px",
+  marginRight: "20px",
+  paddingBottom:"18px",
+},
+amButtonDiv:{
+  marginLeft: "43.3px",
+  marginRight: "43.3px",
+  marginBottom:"24px",
+},
+
+bottomDiv:{
+  marginBottom:'155px'
+},
+
+hideBottomDiv:{
+  visibility:"hidden",
+},
+
+adButtonDiv: {
+  marginLeft:"150px",
+  borderColor:"red"
+},
+
+
 
 '@media only screen and (min-width: 768px)': {
 
@@ -239,11 +364,13 @@ tagLi:{
 },
 radioDiv:{
   margin: "0px",
+  
 },
 first: {
   
   height:"12px",
   width:"12px",
+  marginLeft:"31px",
   marginRight:"34px",
 
 },
@@ -257,9 +384,14 @@ lableYes:{
 second: {
   height:"12px",
   width:"12px",
-  marginLeft: "15px",
-  marginRight:"53px",
+  marginLeft: "34px",
+  marginRight:"15px",
 },
+projectOrg:{
+  marginRight: "52px",
+  marginLeft: "52px",
+},
+
 projectInfo: {
   display:'flex',
   flexDirection:'column',
@@ -269,7 +401,6 @@ projectInfo: {
   
 },
 pStyle: {
-  marginTop: "33px",
   width: "398px",
   height:"20px",
   fontWeight: "500",
@@ -287,9 +418,23 @@ textBox: {
   border:"none",
   
 },
+
+generateButton: {
+  height: "38px",
+  width: "242px",
+  marginTop: "33px",
+  marginLeft: "179px",
+  marginRight: "179px",
+  marginBottom:"32px"
+},
 },
 
 '@media only screen and (min-width: 992px)': {
+
+  adButtonDiv: {
+    marginLeft:"150px",
+    borderColor:"red"
+  },
 
   headingContainer: {
     width:"495px",
@@ -376,14 +521,15 @@ second: {
   marginLeft: "107px",
   marginRight:"15px",
 },
-projectInfo: {
-
+projectOrg: {
   marginRight: "280px",
   marginLeft: "280px",
-  
+},
+projectInfo: {
+  marginRight: "280px",
+  marginLeft: "280px",
 },
 pStyle: {
-  marginTop: "42px",
   width: "732px",
   height: "28px",
   fontWeight: "500",
@@ -400,6 +546,68 @@ textBox: {
   outline:'none',
   border:"none",
   
+},
+ buttonDiv:{
+   margin:0,
+ },
+  
+generateButton: {
+  height: "45px",
+  width: "270px",
+  fontSize: "16px",
+  marginTop: "42px",
+  marginLeft: "434px",
+  marginRight: "32px",
+  marginBottom:"64px"
+},
+
+tagUl:{
+  listStyle: 'none',
+  display:'flex',
+  flexDirection:'row',
+  flexWrap:"wrap",
+  justifyContent:'spaceEvenly',
+  padding:'0px',
+  margin:'0px', 
+},
+
+tagLi:{
+  width: '163px',
+  height: '44px',
+  background: '#D7D7D7',
+  margin:'10px',
+  textAlign:'center',
+  paddingTop:'12px',
+  paddingBottom:'12px',
+  paddingLeft:'10px',
+  paddingRight:'10px',
+},
+
+topicBox: {
+  width: "810px",
+  height: "52px",
+  fontWeight:"500",
+  fontSize: "16px",
+  lineHeight: "19px",
+  paddingLeft: "14px",
+  outline:'none',
+  border:"none",
+  marginBottom:"16px"
+},
+
+tagDivMain:{
+  marginLeft: "280px",
+  marginRight: "280px",
+  
+},
+
+newTagLi:{
+  width: '163px',
+  marginRight:0,
+},
+
+copyImg: {
+  marginRight:"8px",
 },
 
 }

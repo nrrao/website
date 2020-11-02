@@ -28,7 +28,7 @@ context.updateUrlStr(str)
 
   const autoManualTags =() =>{
     return(
-      <div className={classes.flexContainer}>
+      <div className={classes.projectOrg}>
       <div className={classes.flexItem}>
         <p className={classes.pHeading}>Checkout our automated process</p>
         <p className={classes.pTag}>
@@ -44,8 +44,9 @@ context.updateUrlStr(str)
               >
                    <span>Automated</span>
               </a> */}
+              <div className={classes.amButtonDiv}>
         <button className={classes.generateButton} onClick={() => setAutomated(true)} >Automated</button>
-              
+        </div>   
         </div>
       <div className={classes.flexItem}>
         <p className={classes.pHeading}>Leran how to manually add your own tags</p>
@@ -55,7 +56,9 @@ context.updateUrlStr(str)
           repository, it also provides a handy template for you to communicate
           with the repository admin.
         </p>
+        <div className={classes.amButtonDiv}>
         <button className={classes.generateButton}>Manual Entry</button>
+        </div>
       </div>
     </div>
     )

@@ -49,13 +49,15 @@ return(
 }
 
 return(
-  <div className={classes.autoCompleteText}>
+  <>
+  <div className={classes.projectOrg}>
   <p className={classes.pStyle}>Which Organization?</p>
   <input className={classes.textBox} type="text" name="org" value = {orgName} onChange = {(e) => onTextChanged(e)} />
   {renderSuggestions()}
+  </div>
   {showProjInfo ? <ProjectInfo /> : null}
   
-  </div>
+  </>
 );
 
 };

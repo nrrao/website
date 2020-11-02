@@ -74,7 +74,7 @@ const TagGenerator = () => {
         {/* {value.showComponent ? <FindProject /> : null} */}
         {context.sendRequest ? <AddTags/> : null}
         
-      
+      <div className={context.showDiv ? classes.bottomDiv : classes.hideBottomDiv}></div>
     </main>
   );
 };

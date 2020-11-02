@@ -12,7 +12,7 @@ const AddTags = () => {
   const [topicTags, setTopicTags] = useState([]);
   
 
-  //const [showDisplayTag, setShowDisplayTag] = useState(true);
+  const [showAutoManualTag, setShowAutoManualTag] = useState(false);
   // const [showCreateTag, setShowCreateTag] = useState(true);
   // const [showButtonDiv, setShowButtonDiv] = useState(true);
   //const [showDisplayAdditionalButton, setShowDisplayAdditionalButton] = useState(true);
@@ -46,7 +46,7 @@ const AddTags = () => {
       .catch((error) => {
         console.log(error);
 
-        context.updateError("Inavalid URL");
+        context.updateError("The repository could not be found.");
         context.handleShowDisplayTags(false);
         context.handleBtnClick(false);
         context.handleSendRequest(false);
@@ -70,6 +70,19 @@ const AddTags = () => {
     // setShowCreateTag(false);
     // setShowButtonDiv(false);
     context.handleShowDisplayNewTags(true);
+  };
+
+  const resetTags = () => {
+    context.resetAdditionalTags();
+   
+  };
+
+  const resetForm = () => {
+    context.updateOrgValue("","",false,false)
+    context.updateProjectData("","")
+    context.handleBtnClick(false);
+    context.handleSendRequest(false)
+
   };
 
   const addTagQ = () => {
@@ -114,19 +127,19 @@ const AddTags = () => {
     //console.log(context.projectTags.ptags);
     //const ptags = context.projectTags.ptags
     return (
-      <div>
-        <p>
+      <div className={classes.projectOrg}>
+        <p className={classes.pStyle}>
           What topic(s), cause(s), or civic issue(s) does your project address?
         </p>
         {context.additionalTags.atags.map((ptag, idx) => (
-          <div key={idx}>
+          <div className={classes.topicDiv}  key={idx}>
             <input
               className={classes.topicBox}
               placeholder="topic(s), cause(s), or civic issue(s) "
               value={ptag || ""}
               onChange={(e) => context.updateTag(e, idx)}
             />
-            <button onClick={() => context.addTag()}>
+            <button className={classes.plusButton} onClick={() => context.addTag()}>
               <img className={classes.vector} src={vector} alt="vector" />
             </button>
           </div>
@@ -144,15 +157,16 @@ const AddTags = () => {
         >
           Generate Tags
         </button>
-        <button className={classes.generateButton}>Reset</button>
+        <button className={classes.resetButton} onClick={() => resetTags()}>Reset Tags</button>
+        <button className={classes.resetFormButton} onClick={() => resetForm()}>Reset Form</button>
       </div>
     );
   };
 
   const noTags = () => {
     return (
-      <div>
-        <p>
+      <div className={classes.projectOrg}>
+        <p className={classes.pStyle}>
           There are currently no topic tags in your project’s repository.Add
           tags to increase your project visibility.
         </p>
@@ -163,7 +177,7 @@ const AddTags = () => {
   const presentTags = () => {
     return (
       <div
-        className={context.showDisplayTag ? classes.tagDiv : classes.hideButton}
+        className={context.showDisplayTag ? classes.projectInfo : classes.hideButton}
       >
         <p className={classes.pStyle}>These are your repository's current topic tags:</p>
         <div className={classes.tagDiv}>
@@ -183,7 +197,10 @@ const AddTags = () => {
   };
 
   const displayTagArray = () => {
+    console.log(topicTags.length)
+    console.log(context.orgValue.option1)
     if (topicTags.length === 0 && context.orgValue.option1 === "Yes") {
+      console.log("inside 0 and yes ")
       return (
         <>
           {noTags()}
@@ -192,6 +209,7 @@ const AddTags = () => {
       );
     }
     if (topicTags.length !== 0 && context.orgValue.option1 === "Yes") {
+      console.log("inside not 0 and yes ")
       return (
         <>
           {presentTags()}
@@ -199,7 +217,8 @@ const AddTags = () => {
         </>
       );
     }
-    if (topicTags.length === 0 && context.orgValue.option1 === "No") {
+    if (topicTags.length === 0 && context.orgValue.option2 === "No") {
+      console.log("inside 0 and no ")
       return (
         <>
           {noTags()}
@@ -208,6 +227,7 @@ const AddTags = () => {
         </>
       );
     } else {
+      console.log("inside not 0 and no ")
       return (
         <>
           {presentTags()}
@@ -235,20 +255,30 @@ const AddTags = () => {
         >
           Add Additional Tags
         </button>
-        <button className={classes.generateButton}>Reset</button>
+        <button className={classes.resetButton} onClick={() => resetTags()}>Reset Tags</button>
+        <button className={classes.resetFormButton} onClick={() => resetForm()}>Reset Form</button>
+        <div className={classes.adButtonDiv}>
+        <button
+          className={classes.generateButton}
+          onClick={() => setShowAutoManualTag(true)}
+        >
+          Ready to add your tags
+        </button>
+        </div>
+    
       </div>
     );
   };
 
   const displayNewTags = () => {
     return (
-      <div>
-        <div className={classes.tagDiv}>
-          <p>Add these topics to your repository</p>
+      <>
+        <div className={classes.tagDivMain}>
+          <p className={classes.pStyle}>Add these topics to your repository</p>
           <ul className={classes.tagUl}>
             {context.projectTags.map((tag, idx) => (
               <>
-                <li className={classes.tagLi} key={idx}>
+                <li className={classes.newTagLi} key={idx}>
                   {tag}
                 </li>
                 <img
@@ -261,8 +291,8 @@ const AddTags = () => {
           </ul>
         </div>
         {displayAdditionalButton()}
-        <AutoManualTags />
-      </div>
+       
+      </>
     );
   };
 
@@ -276,6 +306,7 @@ const AddTags = () => {
     <div>
       {context.showDisplayTag ? displayTagArray() : null}
       {context.showDisplayNewTags ? displayNewTags() : null}
+      {showAutoManualTag ? <AutoManualTags/> : null}
       {/* {showCreateTag ? createTags() : null}
       {showButtonDiv ? buttonDiv() : null} */}
       {/* {context.showDisplayNewTags ? (

@@ -35,6 +35,7 @@ const ProjectInfo = () => {
       <p className={classes.pStyle}>Project Repository URL:</p>
       <input className={classes.textBox} type="text" name="projectRepository" value={context.projectData.projectRepository} onChange={e => context.updateProjectRepository(e)} />
       <div className={context.btnClick ? classes.hideButton: classes.divError}><span>{context.error}</span></div>
+      <div className={classes.buttonDiv} >
       <button
         className={context.btnClick ? classes.hideButton : classes.generateButton}
         onClick={() => handleButtonClick()}
@@ -42,7 +43,7 @@ const ProjectInfo = () => {
         Find Project
       </button>
       
-      
+      </div>
       {/* {sendRequest ? <AddTags/> : null} */}
     </div>
   );
