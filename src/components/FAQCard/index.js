@@ -10,16 +10,7 @@ import { Divider } from "@material-ui/core";
 
 import useFaqs from "./faqHook";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     width: "100%",
-//     marginBottom: "10px",
-//   },
-//   heading: {
-//     fontSize: theme.typography.pxToRem(15),
-//     fontWeight: theme.typography.fontWeightRegular,
-//   },
-// }));
+
 
 export default function FAQCard(props) {
   //const faqs = props.faqs
