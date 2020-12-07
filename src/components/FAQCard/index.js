@@ -6,7 +6,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Divider } from "@material-ui/core";
+import {Grid, Divider } from "@material-ui/core";
 
 import useFaqs from "./faqHook";
 
@@ -20,8 +20,15 @@ export default function FAQCard(props) {
   const [openFAQCard, setOpenFAQCard] = useState(true);
 
   return (
-    <div className={classes.root}>
-      {faqs.map((faq) => {
+    <div style={{backgroundColor:'#F2F2F2'}}>
+    <Grid container  alignItems="center" justify="center" style={{padding:'60px'}} >
+      <Grid item xs={12} lg={7} style={{paddingBottom:'25px'}}>
+      <Typography variant="h5"  style={{color:'#004364'}}>Frequently Asked Questions:</Typography>
+      </Grid>
+    
+      
+    <Grid item xs={12} lg={7} >
+        {faqs.map((faq) => {
         return (
           <>
             <Accordion style={{ marginBottom: "20px" }}>
@@ -41,6 +48,8 @@ export default function FAQCard(props) {
           </>
         );
       })}
+    </Grid>
+    </Grid>
     </div>
   );
 }

@@ -4,8 +4,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 
 const defaultStyle = {
-    backgroundColor: '#fffff',
-}
+    backgroundColor: '#FFFFFF',
+    width:'70%',
+    }
 
 /**
  * Simple search.
@@ -28,9 +29,8 @@ const defaultStyle = {
 export default function SearchBar(props) {
     console.log('++',props)
     return (
-        <>
-        
-            <TextField
+        <div align='center'>
+          <TextField
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">
@@ -52,6 +52,6 @@ export default function SearchBar(props) {
                 }}
             />
         
-        </>
+        </div>
     );
 }
