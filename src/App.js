@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+
 import Home from './pages/Home'
 import About from './pages/About'
 import Donation from './pages/Donation';
@@ -20,8 +21,6 @@ const App = () => {
       <TagGeneratorContextProvider>
         <TagGeneratorContextProvider1>
           <Switch>
-
-
             <Route exact path='/' component={Landing} />
             <Route exact path='/about' component={About} />
             <Route exact path='/adding-projects-to-the-index' component={HowToUse} />

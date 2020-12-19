@@ -1,31 +1,29 @@
-import React from 'react';
-import { Grid,Typograhy } from "@material-ui/core";
-import NavButton from "./NavButton"
+import React from "react";
+import { Grid } from "@material-ui/core";
+import NavButton from "./NavButton";
+import TitleSection from "./TitleSection";
 
-export default function GetStartedCard (props) {
-  const title = props.title
-  
-  const textStyles = {
-    color:'#0F1D2F',
-    fontWeight: '500',
-    margin:'0 auto 20px auto',
-  }
+export default function GetStartedCard(props) {
+  const headerTitle = props.headerTitle;
+  const buttonHref = props.buttonHref;
+  const buttonText = props.buttonText;
 
-  const CardTitle = () => {
-    return (
-      <Grid container alignItems="center" justify="center">
-      <h2 style={textStyles} align='center'>{title}</h2>
-      </Grid>
-    )
-  }
-
+  /**
+   * A footer call to action. Takes in a Title, Button Text and URL
+   * @param {*} props.headerTitle
+   * @param {*} props.buttonHref
+   * @param {*} props.buttonText
+   */
   return (
     <>
-      <Grid container alignItems="center" justify="center" style={{padding: '60px', backgroundColor: "#FFFFFF"}}>
-        
-        <CardTitle />
-        <NavButton href={props.href} variant='blue'>{props.buttonTitle}</NavButton>
-      </Grid>
+      <div className='getStartedCardDivStyle'>
+        <Grid container alignItems="center" justify="center" direction="column" style={{ padding: "30px 30px 60px 30px", backgroundColor: "#FFFFFF" }}>
+          <TitleSection textVariant='black' style={{ color: '#0F1D2F' }}>{headerTitle}</TitleSection>
+          <NavButton href={buttonHref} variant="blue">
+            {buttonText}
+          </NavButton>
+        </Grid>
+      </div>
     </>
   );
-};
+}
