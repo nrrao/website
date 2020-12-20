@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "../../styles.css";
-//import SearchBar from "../../components/Search/index";
-import Header from "../../components/Header/index"
-import Footer from "../../components/Footer/index"
-import NavBreadcrumbs from "../../components/NavBreadcrumbs"
-//import GetStartedCard from "../../components/GetStartedCard"
+
+import {
+  Header,
+  Footer,
+  GetStartedCard,
+  NavBreadcrumbs,
+  TitleSection
+} from "../../components";
 import FAQCard from "../../components/FAQCard/index";
-//import { Header, Footer, NavBreadcrumbs} from "../../components";
-import GetStartedCard from "../../components/GetStartedCard"
+
 import SearchBar from "../../components/SearchBar"
-import TitleSection from "../../components/TitleSection"
+
 import { Grid, Container, Paper } from "@material-ui/core";
 
-const FAQ = () => {
+export default function FAQ({match}){
+  const radicalcollaboration = match.params.radicalcollaboration
+
   const crumbs = [
     { name: "Home", href: "/home" },
     { name: "Radical Collaboration", href: "/radicalcollaboration" },
@@ -32,7 +36,7 @@ const FAQ = () => {
       </Container>
       </div>
        <FAQCard/>
-       <GetStartedCard title={"Can’t find an answer?"} href={"/contactus"} buttonTitle={"Contact Us"}/>
+       <GetStartedCard headerTitle="Can’t find an answer?" buttonText="Contact Us" buttonHref="/contactus" />
     
     <Footer />
   </>
@@ -40,4 +44,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+

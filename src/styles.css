@@ -65,11 +65,7 @@ h2 {
     font-family: Work Sans;
     font-style: normal;
     font-weight: bold;
-<<<<<<< HEAD
-    font-size: 36px;
-=======
     font-size: 28px;
->>>>>>> upstream-main
     line-height: 38px;
     color: #FFE06D;
 }
@@ -105,12 +101,4 @@ p.black {
 .getStartedCardDivStyle {
     margin-top: 50px;
 }
-<<<<<<< HEAD
-
-p.black {
-    color: black;
-    text-align: center;
-}
-=======
 }        
->>>>>>> upstream-main
