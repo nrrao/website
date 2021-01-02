@@ -18,6 +18,15 @@ export default function FAQCard(props) {
   const [faqs] = useFaqs();
   console.log(faqs);
   const [openFAQCard, setOpenFAQCard] = useState(true);
+  const [sendRequest, setSendRequest] = useState(false);
+
+  useEffect(() => {
+    if(sendRequest){
+       //send the request
+       setSendRequest(false);
+    }
+  },
+  [sendRequest]);
 
   return (
     <div style={{backgroundColor:'#F2F2F2'}}>
@@ -35,6 +44,7 @@ export default function FAQCard(props) {
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 id={faq.key}
+                disabled={sendRequest} onClick={() => setSendRequest(true)}
               >
                 <h6 className={classes.questionText}>
                   {faq.question}
