@@ -1,4 +1,4 @@
-import React, { createRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import useStyles from './styles.js';
 import Accordion from "@material-ui/core/Accordion";
@@ -18,6 +18,7 @@ export default function FAQCard(props) {
   //const [faqs] = useFaqs();
  // console.log(faqs);
   const [faqs, setFaqs] = useState([]);
+  //const faqs = useRef([]);
   const [currentFaq, setCurrentFaq] = useState([]);
   const [sendRequest, setSendRequest] = useState(false);
 
