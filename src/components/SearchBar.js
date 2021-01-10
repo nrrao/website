@@ -1,23 +1,23 @@
-import React from 'react';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import React,{useState,useEffect} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 
 const defaultStyle = {
-    backgroundColor: '#FFFFFF',
-    width:'70%',
-    }
+  backgroundColor: '#FFFFFF',
+  width:'70%',
+}
 
 /**
  * Simple search.
- *  
+ *
  * FIXME: Should the functions for search be defined here?
  *       const [query, setQuery] = useState('');
  *       const [results, setResults] = useState('');
- *       
+ *
  *       const handleSubmit = (event) => {
  *          if (event.key === 'Enter') { console.log(query); } };
- * 
+ *
  * <SearchBar value={query} onInput={e => setQuery(e.target.value)} placeholder="Search the Civic Tech Index" onKeyPress={handleSubmit} />
  *
  * @param {*} value Value of the input passed into the SearchBar. You'll want to pass a state variable here
@@ -27,31 +27,46 @@ const defaultStyle = {
  */
 
 export default function SearchBar(props) {
-    console.log('++',props)
-    return (
-        <div align='center'>
-          <TextField
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    ),
-                    style: {defaultStyle}
-                }}
-                value={props.query}
-                onInput={props.onInput}
-                variant='outlined'
-                style={defaultStyle}
-                placeholder={props.placeholder}
-                fullWidth
-                margin="normal"
-                onKeyPress={props.onKeyPress}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
+    const [query, setQuery] = useState('');
+    const [results, setResults] = useState('');
+    console.log("query",query)
+
+    useEffect(() => {
         
-        </div>
-    );
+        async function fetchSearchResults() {
+          const fullResponse = await fetch(`http://test-civictechindexadmin.herokuapp.com/api/faqs/?search=${query}`);
+          const responseJson = await fullResponse.json();
+          console.log(responseJson)
+          setResults(responseJson);
+          
+        }
+    
+        fetchSearchResults();
+      }, [query]);
+  
+  return (
+    <div align='center'>
+      <TextField
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+          style: { defaultStyle },
+        }}
+        value={query}
+        onInput={e => setQuery(e.target.value)}
+        variant='outlined'
+        style={defaultStyle}
+        placeholder={props.placeholder}
+        fullWidth
+        margin="normal"
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+
+    </div>
+  );
 }

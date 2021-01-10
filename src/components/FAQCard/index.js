@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles,createMuiTheme, ThemeProvider  } from "@material-ui/core/styles";
 import useStyles from './styles.js';
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {Grid, Divider } from "@material-ui/core";
-
+import {Box,Grid, Divider } from "@material-ui/core";
+import Pagination from '@material-ui/lab/Pagination';
 //import useFaqs from "./faqHook";
 
 
@@ -22,9 +22,18 @@ export default function FAQCard(props) {
   const [currentFaq, setCurrentFaq] = useState([]);
   const [sendRequest, setSendRequest] = useState(false);
 
+  // const useStyles = makeStyles((theme) =>({
+  //   root: {
+  //       '& .Mui-selected': {
+  //         backgroundColor: 'transparent',
+  //         color:'#0CB2E7',
+  //        },
+  //   }),
+  // );
+
   useEffect(() => {
     
-    async function fetchFaqs() {
+    async function fetchFaqs(){
       const fullResponse = await fetch('http://test-civictechindexadmin.herokuapp.com/api/faqs/');
       const responseJson = await fullResponse.json();
       console.log(responseJson)
@@ -90,7 +99,14 @@ export default function FAQCard(props) {
         );
       })}
     </Grid>
+   
+    <Grid item xs={12} lg={7} >
+    <Box my={2} display="flex" justifyContent="center">
+    <Pagination count={5} variant="outlined" shape="rounded" color="primary" />
+    </Box>
     </Grid>
+    </Grid>
+    
     </div>
     </>
   );
