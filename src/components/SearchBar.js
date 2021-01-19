@@ -1,19 +1,11 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
-<<<<<<< HEAD
 import React,{useState,useEffect} from 'react';
-=======
-import React from 'react';
->>>>>>> main
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 
 const defaultStyle = {
-<<<<<<< HEAD
   backgroundColor: '#FFFFFF',
   width:'70%',
-=======
-  backgroundColor: '#fffff',
->>>>>>> main
 }
 
 /**
