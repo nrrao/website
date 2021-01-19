@@ -1,11 +1,19 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
+<<<<<<< HEAD
 import React,{useState,useEffect} from 'react';
+=======
+import React from 'react';
+>>>>>>> main
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 
 const defaultStyle = {
+<<<<<<< HEAD
   backgroundColor: '#FFFFFF',
   width:'70%',
+=======
+  backgroundColor: '#fffff',
+>>>>>>> main
 }
 
 /**
@@ -55,18 +63,30 @@ export default function SearchBar(props) {
           ),
           style: { defaultStyle },
         }}
+<<<<<<< HEAD
         value={query}
         onInput={e => setQuery(e.target.value)}
+=======
+        value={props.query}
+        onInput={props.onInput}
+>>>>>>> main
         variant='outlined'
         style={defaultStyle}
         placeholder={props.placeholder}
         fullWidth
         margin="normal"
+<<<<<<< HEAD
+=======
+        onKeyPress={props.onKeyPress}
+>>>>>>> main
         InputLabelProps={{
           shrink: true,
         }}
       />
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     </div>
   );
 }

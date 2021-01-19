@@ -46,6 +46,7 @@
     color: white;
     border: 1px solid #0CB2E7;
     background-color: #0CB2E7;
+    cursor: pointer;
 }
 
 body {
@@ -101,4 +102,11 @@ p.black {
 .getStartedCardDivStyle {
     margin-top: 50px;
 }
-}        
+}
+
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

@@ -1,19 +1,18 @@
-import React from 'react';
 import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import Chip from '@material-ui/core/Chip';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import CardContent from '@material-ui/core/CardContent';
-
-import Grid from '@material-ui/core/Grid';
 import githubColorDictionary from './data/gh-colors.json'
+import Grid from '@material-ui/core/Grid';
+import React from 'react';
 
 const issueStyles = {
   fontSize: '13px',
   fontStyle: 'normal',
-  fontWeight: '400'
+  fontWeight: '400',
 }
 
-function renderLanguageChip(language) {
+const renderLanguageChip = (language) => {
   return <Chip
     size="small"
     style={{ backgroundColor: '#F1F1F1' }}
@@ -22,7 +21,7 @@ function renderLanguageChip(language) {
       style={{ color: githubColorDictionary[language] }} />} />
 }
 
-function renderTopicTags(topics) {
+const renderTopicTags = (topics) => {
   return topics.map((i) => {
     return <Chip
       size="small"
@@ -32,12 +31,12 @@ function renderTopicTags(topics) {
 }
 
 /**
- * 
- * @param {*} props 
+ *
+ * @param {*} props
  */
 export default function ProjectCard(props) {
   return (
-    <Card style={{padding:'15px'}}>
+    <Card style={{ padding:'15px' }}>
       <CardContent>
         <Grid container spacing={2}>
           {/* Project Logo */}
@@ -49,9 +48,9 @@ export default function ProjectCard(props) {
           <Grid container xs={12} sm={10} style={{ paddingTop: '20px' }}>
             {/* Project Title, Watch and Star buttons */}
             <Grid container>
-              <Grid item xs={12} sm={8}><a href={props.projectUrl} style={{color: 'black'}}><span><u>{props.ownerName}/<b>{props.projectName}</b></u></span></a></Grid>
-              <Grid item xs={6} sm={2}><span>{props.watchers} Watchers</span></Grid> {/*TODO: Revise component*/}
-              <Grid item xs={6} sm={2}><span>{props.stargazers} Stargazers</span></Grid> {/*TODO: Revise component*/}
+              <Grid item xs={12} sm={8}><a href={props.projectUrl} style={{ color: 'black' }}><span><u>{props.ownerName}/<b>{props.projectName}</b></u></span></a></Grid>
+              <Grid item xs={6} sm={2}><span>{props.watchers} Watchers</span></Grid> {/* TODO: Revise component*/}
+              <Grid item xs={6} sm={2}><span>{props.stargazers} Stargazers</span></Grid> {/* TODO: Revise component*/}
             </Grid>
             {/* Description & Project Link */}
             <Grid container>

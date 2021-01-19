@@ -1,6 +1,7 @@
+/* eslint-disable max-lines-per-function */
 import axios from 'axios';
-import React, { useState } from 'react'
 import useStyles from './styles.js';
+import React, { useState } from 'react'
 
 const Landing = () => {
   const classes = useStyles();
@@ -10,29 +11,29 @@ const Landing = () => {
 
   const formSwitch = param => {
     switch (param) {
-      case 'showForm':
-        return <div>
-          <h4 className={classes.notificationHeader}>Be the First to Know when the Civic Tech Index launches</h4>
-          <form onSubmit={postUserEmail}>
-            <input className={classes.notifyInput} onChange={(event) => setInputValue(event.target.value)} name="email" placeholder="Enter your email address" type="text"></input>
-            <div className={classes.notifyButton} onClick={postUserEmail}>Notify Me</div>
-          </form>
-        </div>;
-      default:
-        return null;
+    case 'showForm':
+      return <div>
+        <h4 className={classes.notificationHeader}>Be the First to Know when the Civic Tech Index launches</h4>
+        <form onSubmit={postUserEmail}>
+          <input className={classes.notifyInput} onChange={(event) => setInputValue(event.target.value)} name="email" placeholder="Enter your email address" type="text"></input>
+          <div className={classes.notifyButton} onClick={postUserEmail}>Notify Me</div>
+        </form>
+      </div>;
+    default:
+      return null;
     }
   }
 
   const messageSwitch = param => {
     switch (param) {
-      case 'duplicate':
-        return <h4 className={classes.errorMessage}>That email address has already been registered with us.</h4>
-      case 'error':
-        return <h4 className={classes.errorMessage}>The email address you've submitted was invalid.<br />Please check the format and resubmit.</h4>
-      case 'success':
-        return <h4 className={classes.submitMessage}>Thanks for subscribing!<br />We will be in touch soon.</h4>
-      default:
-        return null;
+    case 'duplicate':
+      return <h4 className={classes.errorMessage}>That email address has already been registered with us.</h4>
+    case 'error':
+      return <h4 className={classes.errorMessage}>The email address you've submitted was invalid.<br />Please check the format and resubmit.</h4>
+    case 'success':
+      return <h4 className={classes.submitMessage}>Thanks for subscribing!<br />We will be in touch soon.</h4>
+    default:
+      return null;
     }
   }
 
@@ -81,7 +82,7 @@ const Landing = () => {
           <h4 className={classes.volunteerHeader}>Follow us for<br />launch updates</h4>
           <div className={classes.followIcons}>
             <a href='https://www.instagram.com/civictechindex'><img src='/images/insta-logo.svg' alt='instagram logo' /></a>
-            <a href='https://twitter.com/hackforla'><img className={classes.twitterIcon} src='/images/twitter-logo.svg' alt='twitter logo' /></a>
+            <a href='https://twitter.com/civictechindex'><img className={classes.twitterIcon} src='/images/twitter-logo.svg' alt='twitter logo' /></a>
             <a href='https://www.facebook.com/civictechindex'><img src='/images/fb-logo.svg' alt='facebook logo' /></a>
             <a href='https://github.com/civictechindex'><img src='/images/github-logo.svg' alt='github logo' /></a>
           </div>
@@ -90,7 +91,7 @@ const Landing = () => {
 
       <section className={classes.footerSection}>
         <p>The Civic Tech Index is an open-source project.<br />
-        You can download or contribute to the code on <a href="https://github.com/civictechindex">Github.</a>
+          You can download or contribute to the code on <a href="https://github.com/civictechindex">Github.</a>
         </p>
 
       </section>

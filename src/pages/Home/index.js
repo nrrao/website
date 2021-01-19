@@ -1,12 +1,12 @@
 import React from 'react'
 import '../../styles.css'
 
-import { Header, Footer, NavButton, GetStartedCard, TitleSection } from '../../components'
+import { Footer, GetStartedCard, Header, NavButton, TitleSection } from '../../components'
 
 import NotableUsersSection from './sections/NotableUsersSection'
 import TrendingTopicsSection from './sections/TrendingTopicsSection'
 
-import { Grid, Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 
 const MarketingSection = () => {
 
@@ -26,7 +26,7 @@ const CallToActionSection = () => {
   return (
     <Grid container style={{ paddingTop: '35px' }} justify="center">
       <Grid item md={3} xs={12} style={{ paddingTop: '20px' }}>
-        <div align='center'><NavButton href='/taggenerator' variant='blue'>Tag your project</NavButton></div>
+        <div align='center'><NavButton href='/tag-generator' variant='blue'>Tag your project</NavButton></div>
       </Grid>
       <Grid item md={3} xs={12} style={{ paddingTop: '20px' }}>
         <div align='center'><NavButton href='/about'>Learn more</NavButton></div>
@@ -48,7 +48,7 @@ const Home = () => {
           <TrendingTopicsSection />
         </Container>
       </div>
-      <GetStartedCard headerTitle="Ready to get started?" buttonText="Tag your Project" buttonHref="/taggenerator" />
+      <GetStartedCard headerTitle="Ready to get started?" buttonText="Tag your Project" buttonHref="/tag-generator" />
       <Footer />
     </>
   )

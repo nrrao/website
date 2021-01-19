@@ -1,47 +1,89 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from "react";
+import { createUseStyles } from "react-jss";
+import { ContributorThumbnail } from "./ContributorThumbnail";
+import { DropdownArrow } from "./DropdownArrow";
 
-const dropdown = {
-    margin: '0.4rem 0',
-    boxSizing: 'border-box',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    color: '#004364',
-    backgroundColor: 'white',
-    borderRadius: '2px',
-    padding: '0 1rem',
-    boxShadow: '0.1rem 0.1rem 10px #e0dede ',
-};
+const useStyles = createUseStyles({
+  container: {
+    width: "100%",
+  },
+  codeForAll: {
+    "& h4": {
+      color: "#004364",
+    },
+    color: "#0F1D2F",
+    margin: "1rem auto",
+    boxSizing: "border-box",
+    width: "50%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: "2px",
+    paddingRight: "1rem",
+    "&:nth-of-type(2)": {
+      color: "red",
+    },
+  },
+  dropdown: {
+    "& p": {
+      color: "#0F1D2F",
+      fontSize: "1.25rem",
+      fontWeight: "bold",
+    },
+    minHeight: "6rem",
+    margin: "0.75rem 0",
+    color: "#004364",
+    boxSizing: "border-box",
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: "2px",
+    paddingRight: "1rem",
+  },
+  chevron: {
+    cursor: "pointer",
+    fontSize: "1.3rem",
+    marginLeft: "auto",
+    padding: "0.5rem",
+  },
+});
 
-const chevron = {
-    fontSize: '1.3rem',
-    padding: '0.5rem',
-    '&:hover': {
-        cursor: 'pointer'
+export const Dropdown = ({
+  organization,
+  children,
+  dropdownLength,
+  isOpen,
+}) => {
+  const [open, setOpen] = useState(false);
+  const classes = useStyles();
+  useEffect(() => {
+    if (isOpen) {
+      setOpen(isOpen);
     }
-}
-
-export const Dropdown = ({ dropdownText, index, dropdownItems, children }) => {
-    const [open, setOpen] = useState(false);
-    const arrow = useRef(null);
-
-    const handleClick = () => {
-        if (!arrow.current.style.transform) {
-            arrow.current.style.transform = 'rotate(180deg)';
-        } else {
-            arrow.current.style.transform = '';
+  }, [isOpen]);
+  return (
+    <div className={classes.container}>
+      <div
+        className={
+          typeof organization === "string"
+            ? classes.codeForAll
+            : classes.dropdown
         }
-        setOpen(c => !c);
-    }
-
-    return (
-        <div key={index} style={{ width: '100%' }} >
-            <div style={dropdown} tabIndex='0' >
-                <h3>{dropdownText}</h3>
-                {dropdownItems ? <img ref={arrow} style={chevron} onClick={handleClick} src='/images/link-arrow.png' alt='dropdown chevron'/> : null}
-            </div>
-            {open && children}
+      >
+        <div>
+          <ContributorThumbnail organization={organization} />
         </div>
-    )
-}
+        {dropdownLength ? (
+          <p>
+            <span>({dropdownLength})</span>
+          </p>
+        ) : null}
+        {dropdownLength ? <DropdownArrow setOpenFunction={setOpen} /> : null}
+      </div>
+      {open && children}
+    </div>
+  );
+};
