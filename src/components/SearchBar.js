@@ -63,30 +63,17 @@ export default function SearchBar(props) {
           ),
           style: { defaultStyle },
         }}
-<<<<<<< HEAD
         value={query}
         onInput={e => setQuery(e.target.value)}
-=======
-        value={props.query}
-        onInput={props.onInput}
->>>>>>> main
         variant='outlined'
         style={defaultStyle}
         placeholder={props.placeholder}
         fullWidth
         margin="normal"
-<<<<<<< HEAD
-=======
-        onKeyPress={props.onKeyPress}
->>>>>>> main
         InputLabelProps={{
           shrink: true,
         }}
       />
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     </div>
   );
 }
