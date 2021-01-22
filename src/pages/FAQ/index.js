@@ -28,7 +28,7 @@ export default function FAQ({ match }) {
   return (
     <>
       <Header />
-      <div className='default-background' style={{ width: '100vw', paddingBottom: '80px' }} >
+      <div className='default-background' style={{ paddingBottom: '80px',width: '100vw' }} >
         <Container>
           <NavBreadcrumbs crumbs={crumbs} color="#FEFEFE" />
           <TitleSection title={"How can we help?"} />

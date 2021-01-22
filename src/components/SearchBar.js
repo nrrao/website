@@ -1,8 +1,8 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
-import React,{useState,useEffect} from 'react';
+import React,{ useState,useEffect } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
-
+import AccordionSection from '././FAQCard/accordionSecion'
 const defaultStyle = {
   backgroundColor: '#FFFFFF',
   width:'70%',
@@ -27,34 +27,50 @@ const defaultStyle = {
  */
 
 export default function SearchBar(props) {
-    const [query, setQuery] = useState('');
-    const [results, setResults] = useState('');
-    console.log("query",query)
+  const [query, setQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [showComponent,setShowComponent]=useState(false)
+  console.log("query",query)
 
-    useEffect(() => {
-        
-        async function fetchSearchResults() {
-          const fullResponse = await fetch(`http://test-civictechindexadmin.herokuapp.com/api/faqs/?search=${query}`);
-          const responseJson = await fullResponse.json();
-          console.log(responseJson)
-          setResults(responseJson);
-          
-        }
-    
-        fetchSearchResults();
-      }, [query]);
-  
+  // FETCH API DATA
+  const fetchSearchResults =async function () {
+    const fullResponse = await fetch(`http://test-civictechindexadmin.herokuapp.com/api/faqs/?search=${query}`);
+    const responseJson = await fullResponse.json();
+    console.log(responseJson)
+    return responseJson
+
+  }
+
+  //PREVENTS RERENDER FLICKERING AS USER TYPES IN SEARCH
+  const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
+
+  useEffect(() => {
+    let currentQuery = true
+    const controller = new AbortController()
+    const loadSearchResults = async () => {
+      if (!query) return setSearchResults([])
+      await sleep(350)
+      if (currentQuery) {
+        const searchResults = await fetchSearchResults(query,controller)
+        setSearchResults(searchResults)
+        setShowComponent(true)
+      }
+    }
+    loadSearchResults()
+    return () => {
+      currentQuery = false
+      controller.abort()
+  }
+
+  }, [query]);
+
   return (
+    <>
     <div align='center'>
-      <TextField
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-          style: { defaultStyle },
-        }}
+      <TextField autoFocus InputProps={{startAdornment: (
+            <InputAdornment position="start"><SearchIcon /></InputAdornment>), style: { defaultStyle },}}
         value={query}
         onInput={e => setQuery(e.target.value)}
         variant='outlined'
@@ -67,5 +83,7 @@ export default function SearchBar(props) {
         }}
       />
     </div>
+     <AccordionSection faqs={searchResults}/>
+    </>
   );
 }
