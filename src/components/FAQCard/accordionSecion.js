@@ -1,16 +1,12 @@
 /* eslint-disable sort-keys */
-import React, { useRef, useState, useEffect,useContext } from "react";
-import { makeStyles,createMuiTheme, ThemeProvider  } from "@material-ui/core/styles";
-import useStyles from './styles.js';
+import React, { useState, useEffect,useContext } from "react";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Box,Grid, Divider } from "@material-ui/core";
-import Pagination from '@material-ui/lab/Pagination';
-import usefetch from '../UseFetch'
-import { FaqSearchContext } from '../../pages/Faq'
+import {Grid, Divider } from "@material-ui/core";
+import { FaqSearchContext } from '../../pages/SearchFaq'
 
 export default function AccordionSection(props) {
   const faqSearchContext = useContext(FaqSearchContext)

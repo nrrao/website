@@ -10,6 +10,7 @@ import Faq from './pages/FAQ'
 import Landing from './pages/Landing'
 import Projects from './pages/Projects'
 import TagCreator from './pages/TagCreator'
+// import SearchFaq from './pages/SearchFaq'
 
 
 const App = () => {

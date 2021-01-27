@@ -70,8 +70,9 @@ export default function FAQ({ match }) {
   const AccordionSection = () => {
     const [currentFaq, setCurrentFaq] = useState([]);
     const [sendRequest, setSendRequest] = useState(false);
+
     useEffect(() => {
-      console.log(currentFaq)
+
       const incrementViewCount = async function () {
         const requestOptions = {
           method: 'POST',

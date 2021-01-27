@@ -1,10 +1,10 @@
 /* eslint-disable sort-keys */
-import React,{ useEffect,useReducer } from 'react';
+import { useEffect,useReducer } from 'react';
 
 
 
 // eslint-disable-next-line max-lines-per-function
-const useSearchFetch = (url) => {
+const useSearchFaq = (url) => {
 
   const initialState = {
     query:'',
@@ -14,6 +14,8 @@ const useSearchFetch = (url) => {
 
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
+    case 'SETQUERY':
+      return { ...initialState, status: 'setQuery', query: action.payload };
     case 'FETCHEDSEARCH':
       return { ...initialState, status: 'fetchedSearch', data: action.payload };
     case 'FETCHEDFAQ':
@@ -63,7 +65,7 @@ const useSearchFetch = (url) => {
 
   }, [url]);
 
-  return state;
+  return { state,dispatch }
 };
 
-export default useSearchFetch
+export default useSearchFaq

@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { Box,Grid, Divider } from "@material-ui/core";
+import { Box,Grid } from "@material-ui/core";
 import Pagination from '@material-ui/lab/Pagination';
 import AccordionSection from './accordionSecion'
 
