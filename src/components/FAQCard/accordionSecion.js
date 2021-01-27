@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
+/* eslint-disable sort-keys */
+import React, { useRef, useState, useEffect,useContext } from "react";
 import { makeStyles,createMuiTheme, ThemeProvider  } from "@material-ui/core/styles";
 import useStyles from './styles.js';
 import Accordion from "@material-ui/core/Accordion";
@@ -8,13 +9,16 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Box,Grid, Divider } from "@material-ui/core";
 import Pagination from '@material-ui/lab/Pagination';
-import useFaqs from "./faqHook";
+import usefetch from '../UseFetch'
+import { FaqSearchContext } from '../../pages/Faq'
 
 export default function AccordionSection(props) {
-  const faqs = props.faqs || []
+  const faqSearchContext = useContext(FaqSearchContext)
+  const faqs = faqSearchContext.data
   const [currentFaq, setCurrentFaq] = useState([]);
   const [sendRequest, setSendRequest] = useState(false);
   useEffect(() => {
+    console.log(currentFaq)
     const incrementViewCount = async function () {
       const requestOptions = {
         method: 'POST',
@@ -23,7 +27,7 @@ export default function AccordionSection(props) {
           "answer": currentFaq.answer,
           "view_count": currentFaq.view_count }),
       }
-      const response = await fetch(`http://test-civictechindexadmin.herokuapp.com/api/faqs/${currentFaq.id}/increment_count/`, requestOptions);
+      await fetch(`http://test-civictechindexadmin.herokuapp.com/api/faqs/${currentFaq.id}/increment_count/`, requestOptions);
     }
     if (sendRequest){
       // send the request
