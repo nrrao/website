@@ -1,6 +1,5 @@
 /* eslint-disable sort-keys */
 import React, { useState } from "react";
-// import "../styles.css";
 import '../theme-mui'
 import {
   Footer,
