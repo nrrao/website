@@ -6,11 +6,11 @@ import About from './pages/About'
 import Donation from './pages/Donation';
 import HowToUse from './pages/HowToUse'
 import Contributors from './pages/Contributors'
-import Faq from './pages/FAQ'
+// import Faq from './pages/FAQ'
 import Landing from './pages/Landing'
 import Projects from './pages/Projects'
 import TagCreator from './pages/TagCreator'
-// import SearchFaq from './pages/SearchFaq'
+import SearchFaq from './pages/SearchFaq'
 
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
         <Route exact path='/donate' component={Donation} />
         <Route exact path='/tag-generator' component={TagCreator} />
         <Route exact path='/home' component={Home} />
-        <Route exact path='/radicalcollaboration/:faq' component={Faq} />
+        <Route exact path='/radicalcollaboration/:faq' component={SearchFaq} />
         <Route exact path='/contributors/:affiliation' component={Contributors} />
         <Route exact path='/projects' component={Projects} />
       </Switch>

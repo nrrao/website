@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { Box,Grid } from "@material-ui/core";
 import Pagination from '@material-ui/lab/Pagination';
 import AccordionSection from './accordionSecion'
-
+import UseSearchFaq from '../UseSearchFaq'
 
 const PaginationSection = () =>{
   return (
@@ -22,7 +22,7 @@ export default function FAQCard(props) {
           <Grid item xs={12} lg={7} style={{ paddingBottom:'25px' }}>
             <Typography variant="h5"  style={{ color:'#004364' }}>{props.title}</Typography>
           </Grid>
-          <AccordionSection/>
+          <AccordionSection faqs={props.faqs}/>
           <PaginationSection/>
         </Grid>
       </div>

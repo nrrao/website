@@ -1,18 +1,20 @@
 /* eslint-disable sort-keys */
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {Grid, Divider } from "@material-ui/core";
-import { FaqSearchContext } from '../../pages/SearchFaq'
+import { Grid, Divider } from "@material-ui/core";
+
+
 
 export default function AccordionSection(props) {
-  const faqSearchContext = useContext(FaqSearchContext)
-  const faqs = faqSearchContext.data
+
   const [currentFaq, setCurrentFaq] = useState([]);
   const [sendRequest, setSendRequest] = useState(false);
+  const faqs = props.faqs
+
   useEffect(() => {
     console.log(currentFaq)
     const incrementViewCount = async function () {

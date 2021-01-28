@@ -7,15 +7,12 @@ import { useEffect,useReducer } from 'react';
 const useSearchFaq = (url) => {
 
   const initialState = {
-    query:'',
     status: 'idle',
     data: [],
   };
 
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
-    case 'SETQUERY':
-      return { ...initialState, status: 'setQuery', query: action.payload };
     case 'FETCHEDSEARCH':
       return { ...initialState, status: 'fetchedSearch', data: action.payload };
     case 'FETCHEDFAQ':
@@ -45,7 +42,7 @@ const useSearchFaq = (url) => {
     }
     else {
       const loadSearchResults = async () => {
-        await sleep(650)
+        await sleep(350)
         if (currentQuery) {
           const fetchData = async function () {
             const response = await fetch(url,controller);
@@ -65,7 +62,7 @@ const useSearchFaq = (url) => {
 
   }, [url]);
 
-  return { state,dispatch }
+  return state
 };
 
 export default useSearchFaq
