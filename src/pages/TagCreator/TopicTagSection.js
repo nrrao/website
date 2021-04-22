@@ -39,7 +39,7 @@ export const CurrentTopicTagSection = ({ names, repositoryName }) => {
           <Typography variant='body1'>Current topic tags on {repositoryName}:</Typography>
         </Grid>
         <Grid container direction="row" data-cy='current-tags' style={{ padding:'30px' }}>
-          <TopicTag topicNames={names} variant='generated' />
+          <TopicTag topicnames={names} variant='generated' />
         </Grid> </Grid>: <Grid item md={8} style={{ margin:'auto', padding:'30px' }}>
         <Typography variant='h5' style={{ textAlign:'center' }}>There are currently no topic tags in your project’s repository. Add tags to increase your project visibility.</Typography>
       </Grid> }
@@ -127,7 +127,7 @@ export const NewTags =({ resetForm,setDisplayState,tagsToAdd,setChangeValue })=>
         <Grid container direction="row">
           <Grid item md={8} data-cy='new-tags' style={{ padding:'30px' }}>
             <Grid container direction="row">
-              <TopicTag topicNames={tagsToAdd} variant='generated' />
+              <TopicTag topicnames={tagsToAdd} variant='generated' />
             </Grid>
           </Grid>
           <Grid item md={4}>
@@ -163,7 +163,7 @@ export const CopyPasteTags = ({ tagsToAdd,setDisplayState,repositoryName,reposit
         <Grid container direction="row">
           <Grid item md={8} data-cy='copy-paste-tags' style={{ padding:'30px' }}>
             <Grid container direction="row">
-              <TopicTag topicNames={tagsToAdd} variant='copypaste'/>
+              <TopicTag topicnames={tagsToAdd} variant='copypaste'/>
             </Grid>
           </Grid>
           <Grid item md={4}>
